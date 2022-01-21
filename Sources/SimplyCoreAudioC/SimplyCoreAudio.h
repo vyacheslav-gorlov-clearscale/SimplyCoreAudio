@@ -30,4 +30,18 @@ static AudioObjectPropertyScope kAudioObjectPropertyElementMain = kAudioObjectPr
 #define kAudioAggregateDeviceMainSubDeviceKey "master"
 #endif
 
+// Catalyst doesn't have access to given properties but as they are defined as consts, we can get from documentation and update periodically
+// https://developer.apple.com/documentation/audiotoolbox/1405208-audio_hardware_services_properti/kaudiohardwareservicedeviceproperty_virtualmainvolume?language=objc
+// https://developer.apple.com/documentation/audiotoolbox/1405208-audio_hardware_services_properti/kaudiohardwareservicedeviceproperty_virtualmainbalance?language=objc
+#if TARGET_OS_MACCATALYST
+#import <CoreAudio/CoreAudio.h>
+
+CF_ENUM(AudioObjectPropertySelector)
+{
+    kAudioHardwareServiceDeviceProperty_VirtualMainVolume = 'vmvc',
+    kAudioHardwareServiceDeviceProperty_VirtualMainBalance = 'vmbc'
+};
+
+#endif
+
 #endif /* SimplyCoreAudio_h */

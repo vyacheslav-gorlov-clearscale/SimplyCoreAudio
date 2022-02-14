@@ -60,7 +60,7 @@ extension Scope {
         case kAudioObjectPropertyScopeInput: return .input
         case kAudioObjectPropertyScopeOutput: return .output
         case kAudioObjectPropertyScopePlayThrough: return .playthrough
-        case kAudioObjectPropertyElementMaster: return .master
+        case kAudioObjectPropertyElementMain: return .master
         case Element.main.asPropertyElement: return .main
         case kAudioObjectPropertyScopeWildcard: return .wildcard
         default:

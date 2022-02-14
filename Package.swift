@@ -1,11 +1,14 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "SimplyCoreAudio",
-    platforms: [.macOS(.v10_12)],
+    platforms: [
+        .macOS(.v12),
+        .macCatalyst(.v15)
+    ],
     
     products: [
         .library(name: "SimplyCoreAudio",
@@ -14,7 +17,7 @@ let package = Package(
     ],
     
     dependencies: [
-        .package(url: "https://github.com/apple/swift-atomics.git", from: "0.0.1")
+        .package(url: "https://github.com/apple/swift-atomics.git", from: "1.0.2")
     ],
     
     targets: [
@@ -34,5 +37,5 @@ let package = Package(
         ),
 
     ],
-    swiftLanguageVersions: [.v4, .v4_2, .v5]
+    swiftLanguageVersions: [.v5]
 )
